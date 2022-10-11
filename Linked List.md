@@ -34,4 +34,36 @@ Circular Linked List – the last node of the linked list contains the link of t
   - Pointer (Or Reference) to the next node (connects one node to another) or An address of another node
 In C, represent a node using structures
 
+# Implement
+# node
+```c
+struct Node{
+  int data;
+  struct Node* next;
+};
+```
+## Construction of a simple linked list with 3 nodes:
+```c
+int main()
+{   
+    /* Initialize nodes */
+    struct Node* head=NULL;
+    struct Node* second=NULL;
+    struct Node* third=NULL;
+    /* Allocate memory in the heap*/
+    head=(struct Node*)malloc(sizeof(struct Node));
+    second=(struct Node*)malloc(sizeof(struct Node));
+    third=(struct Node*)malloc(sizeof(struct Node));
+    /* Assign data values */
+    head->data=1;
+    second->data=3;
+    third->data=5;
+    /* Connect nodes */
+    head->next=second;
+    second->next=third;
+    third->next=NULL;
+    return 0;
+}
+```
+
 
