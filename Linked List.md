@@ -79,7 +79,7 @@ void print(struct Node *head)
    }
 }
 
-printList(head);
+print(head);
 
 //output: 1 3 5
 ```
@@ -120,5 +120,67 @@ void insert_e(int data)
     new_node->data=data;
     new_node->next=NULL;
     temp->next=new_node;
+};
+```
+### 3. Insert at the Middle
+-Allocate memory and store data for new node
+-Traverse to node just before the required position of new node
+-Change next pointers to include new node in between
+
+-Check if the given previous node is NULL or not.
+-allocate a new node and Assign the data to the new node
+And then make the next of new node as the next of previous node. 
+Finally, move the next of the previous node as a new node.
+```c
+#include <stdio.h>
+#include <stdlib.h>
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+void insert(int,int);
+void print(struct Node*);
+
+struct Node* head;
+int main()
+{   
+    head=NULL;
+    insert(5, 1);
+    insert(6, 2);
+    print(head);
+
+    return 0;
+}
+void insert(int data, int position){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+    struct Node* pre_node=(struct Node*)malloc(sizeof(struct Node));
+    pre_node=head;
+    
+    if(position==1){
+        new_node->data=data;
+        new_node->next=head;
+        head=new_node;
+    }
+    else{
+        
+        for(int i=0;i<position-2;i++){
+            pre_node=pre_node->next;
+        }
+        if(pre_node!=NULL){
+            new_node->data=data;
+            new_node->next=pre_node->next;
+            pre_node->next=new_node;
+        }else{printf("pre_node doesn't exist");}
+    }};
+    
+
+void print(struct Node* head)
+{
+   struct Node* temp=head;
+   while(temp!=NULL){
+       printf("%d ", temp->data);
+       temp=temp->next;
+   }
 };
 ```
