@@ -96,10 +96,29 @@ void insert_b(int data){
     new_node->next=head;
     head=new_node;
 };
-
+```
 ### 2.  Insert at the End
 Allocate memory for new node
 Store data
 Traverse to last node
 Change next of last node to recently created node
+```c
+void insert_e(int data)
+{
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+    struct Node* temp=(struct Node*)malloc(sizeof(struct Node));
+    temp=head;
+    //用while loop使temp = 倒數第二個node(原本的最後一個)
+    /*
+    while(temp!=NULL){ //錯誤:最後temp=NULL 
+        temp=temp->next;
+    }
+    */
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    new_node->data=data;
+    new_node->next=NULL;
+    temp->next=new_node;
+};
 ```
