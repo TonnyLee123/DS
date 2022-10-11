@@ -24,3 +24,14 @@ Ease of Insertion/Deletion.
 Simple Linked List – move or traverse the linked list in only one direction
 Doubly Linked List – move or traverse the linked list in both directions (Forward and Backward)
 Circular Linked List – the last node of the linked list contains the link of the first/head node of the linked list in its next pointer and the first/head node contains the link of the last node of the linked list in its prev pointer
+
+# Representation of Linked Lists
+- Represented by a pointer to the first node of the linked list. 
+- The first node is called the head of the linked list. 
+- empty linked list, then the value of the head points to NULL. 
+- Each node in a list consists of at least two parts: 
+  - A Data Item (we can store integer, strings, or any type of data).
+  - Pointer (Or Reference) to the next node (connects one node to another) or An address of another node
+In C, represent a node using structures
+
+
