@@ -34,7 +34,7 @@ Circular Linked List – the last node of the linked list contains the link of t
   - Pointer (Or Reference) to the next node (connects one node to another) or An address of another node
 In C, represent a node using structures
 
-# Implement
+# Linked List Implementations
 # node
 ```c
 struct Node{
@@ -65,5 +65,41 @@ int main()
     return 0;
 }
 ```
+## Traversal of a Linked List
+Traverse the created list and print the data of each node.
+```c
+// keep moving the temp node to the next one and display its contents.
+//When temp is NULL, we know that we have reached the end of the linked list so we get out of the while loop.
+void print(struct Node *head)
+{
+   struct Node* temp=head;
+   while(temp!=NULL){
+       printf("%d ", temp->data);
+       temp=temp->next;
+   }
+}
 
+printList(head);
 
+//output: 1 3 5
+```
+## Insert Elements
+### 1. Insert at the beginning
+- Allocate memory for new node
+- Store data
+- Change next of new node to point to head
+- Change head to point to recently created node
+```
+void insert_b(int data){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+    new_node->data=data;
+    new_node->next=head;
+    head=new_node;
+};
+
+### 2.  Insert at the End
+Allocate memory for new node
+Store data
+Traverse to last node
+Change next of last node to recently created node
+```
