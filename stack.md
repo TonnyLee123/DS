@@ -87,3 +87,47 @@ pop()   	O(1)
 isEmpty() 	O(1)
 size()	O(1)
 ```
+Types of Stacks:
+Register Stack: a memory element present in the memory unit and can handle a small amount of data only. The height of the register stack is always limited as the size of the register stack is very small compared to the memory.
+Memory Stack: handle a large amount of memory data. The height of the memory stack is flexible as it occupies a large amount of memory data. 
+
+Applications of the stack:
+Infix to Postfix /Prefix conversion
+Redo-undo features at many places like editors, photoshop.
+Forward and backward features in web browsers
+Used in many algorithms like Tower of Hanoi, tree traversals, stock span problems, and histogram problems.
+Backtracking is one of the algorithm designing techniques. Some examples of backtracking are the Knight-Tour problem, N-Queen problem, find your way through a maze, and game-like chess or checkers in all these problems we dive into someway if that way is not efficient we come back to the previous state and go into some another path. To get back from a current state we need to store the previous state for that purpose we need a stack.
+In Graph Algorithms like Topological Sorting and Strongly Connected Components
+In Memory management, any modern computer uses a stack as the primary management for a running purpose. Each program that is running in a computer system has its own memory allocations
+String reversal is also another application of stack. Here one by one each character gets inserted into the stack. So the first character of the string is on the bottom of the stack and the last element of a string is on the top of the stack. After Performing the pop operations on the stack we get a string in reverse order.
+
+
+Implementation of Stack: 
+There are two ways to implement a stack
+
+Using array
+Using linked list
+```c
+ data){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+    new_node->data=data;
+    new_node->next=top;
+    top=new_node;
+};
+
+void pop(){
+    struct Node* temp;
+    if(top==NULL) return;//empty stack
+    temp=top;
+    top=temp->next;
+    free(temp);
+   
+};
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}
+
+```
